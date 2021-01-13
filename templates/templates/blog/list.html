@@ -4,8 +4,9 @@
     <h1>Laatste posts</h1>
 
     <ul>
-        <li><a href="{% url 'detail' %}">Bericht</a></li>
-        <li><a href="{% url 'redirect' %}">Bericht redirect</a></li>
+        {% for post in object_list %}
+            <li>{{ post.publish_date }} - {{ post.title }}</li>
+        {% endfor %}
     </ul>
 
 {% endblock content %}
