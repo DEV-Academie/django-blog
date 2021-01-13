@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Laatste posts</h1>
+
+    <ul>
+        <li><a href="{% url 'detail' %}">Bericht</a></li>
+        <li><a href="{% url 'redirect' %}">Bericht redirect</a></li>
+    </ul>
+
+{% endblock content %}
