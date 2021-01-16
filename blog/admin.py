@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from blog.models import Post
+from blog.models import Category, Post
 
 
 @admin.register(Post)
@@ -10,6 +10,11 @@ class PostAdmin(admin.ModelAdmin):
     list_editable = ("published", )
     list_filter = ("published", )
     search_fields = ("title", )
+
+
+@admin.register(Category)
+class Category(admin.ModelAdmin):
+    pass
 
 
 admin.site.site_header = admin.site.site_title = "Beginnen met Django Blog"
