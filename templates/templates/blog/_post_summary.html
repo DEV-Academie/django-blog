@@ -1,0 +1,11 @@
+<div class="box">
+    <a href="{% url 'detail' pk=post.pk %}">{{ post.title }}</a>
+    <p class="help">{{ post.publish_date }} | {{ post.author }}</p>
+    <br/>
+
+    {% if post.category %}
+        <a class="tag" href="{% url 'category' slug=post.category.slug %}">
+            {{ post.category.title }}
+        </a>
+    {% endif %}
+</div>
