@@ -1,0 +1,6 @@
+<div class="box">
+    <p class="has-text-weight-bold">Categorieën</p>
+    {% for category in categories %}
+        <a href="{% url 'category' slug=category.slug %}">{{ category }}</a><br/>
+    {% endfor %}
+</div>

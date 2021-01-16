@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load categories %}
 
 {% block title %}{{ category.title }}{% endblock title %}
 
@@ -7,9 +8,17 @@
         <div class="container">
             <h1 class="title">Categorie: {{ category.title }}</h1>
 
-            {% for post in category.posts.all %}
-                {% include "blog/_post_summary.html" %}
-            {% endfor %}
+            <div class="columns">
+                <div class="column is-three-fifths-tablet">
+                    {% for post in category.posts.all %}
+                        {% include "blog/_post_summary.html" %}
+                    {% endfor %}
+                </div>
+
+                <div class="column">
+                    {% show_categories %}
+                </div>
+            </div>
         </div>
     </section>
 {% endblock content %}

@@ -1,13 +1,24 @@
 {% extends "base.html" %}
+{% load categories %}
 
 {% block content %}
     <section class="section">
         <div class="container">
             <h1>Laatste berichten</h1>
 
-            {% for post in object_list %}
-                {% include "blog/_post_summary.html" %}
-            {% endfor %}
+            <div class="columns">
+                <div class="column is-three-fifths-tablet">
+                    {% for post in object_list %}
+                        {% include "blog/_post_summary.html" %}
+                    {% endfor %}
+                </div>
+
+                <div class="column">
+                    {% show_categories %}
+                </div>
+            </div>
+
+
         </div>
     </section>
 {% endblock content %}
