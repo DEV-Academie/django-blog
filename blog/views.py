@@ -1,6 +1,6 @@
-from django.views.generic import DetailView, ListView, TemplateView, RedirectView
+from django.views.generic import DetailView, ListView, RedirectView
 
-from blog.models import Post
+from blog.models import Category, Post
 
 
 class BlogListView(ListView):
@@ -15,6 +15,10 @@ class BlogDetailView(DetailView):
     template_name = "blog/detail.html"
     model = Post
 
+
+class PostsPerCategory(DetailView):
+    model = Category
+    template_name = "blog/category.html"
 
 class PostRedirect(RedirectView):
     url = "/post"
