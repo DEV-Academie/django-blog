@@ -1,10 +1,10 @@
-from django.views.generic import TemplateView, RedirectView
+from django.views.generic import ListView, TemplateView, RedirectView
+
+from blog.models import Post
 
 
-class BlogListView(TemplateView):
-    """
-    Simple placeholder view for a list of blog posts
-    """
+class BlogListView(ListView):
+    model = Post
     template_name = "blog/list.html"
 
 
