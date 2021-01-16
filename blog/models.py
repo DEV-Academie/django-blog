@@ -15,7 +15,7 @@ class Post(models.Model):
         if self.published and not self.publish_date:
             self.publish_date = date.today()
 
-        super().save(self, *args, **kwargs)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
