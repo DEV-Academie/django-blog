@@ -1,16 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Laatste posts</h1>
+    <h1>Laatste berichten</h1>
 
-    <ul>
-        {% for post in object_list %}
-            <li>
-                <a href="{% url 'detail' pk=post.pk %}">
-                    {{ post.publish_date }} - {{ post.title }}
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
-
+    {% for post in object_list %}
+        <div class="box">
+            <a href="{% url 'detail' pk=post.pk %}">{{ post.title }}</a>
+            <p class="help">{{ post.publish_date }} | {{ post.author }}</p>
+        </div>
+    {% endfor %}
 {% endblock content %}
