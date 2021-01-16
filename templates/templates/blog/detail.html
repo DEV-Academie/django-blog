@@ -1,14 +1,25 @@
 {% extends "base.html" %}
+{% load categories %}
+
 {% block title %}{{ post.title }}{% endblock title %}
 
 {% block content %}
     <section class="section">
         <div class="container">
             <h1 class="title">{{ post.title }}</h1>
-            <p class="subtitle">{{ post.publish_date }} | {{ post.author }}</p>
 
-            <div class="content">
-                {{ post.body }}
+            <div class="columns">
+                <div class="column is-three-fifths-tablet">
+                    <p class="subtitle">{{ post.publish_date }} | {{ post.author }}</p>
+
+                    <div class="content">
+                        {{ post.body }}
+                    </div>
+                </div>
+
+                <div class="column">
+                    {% show_categories %}
+                </div>
             </div>
         </div>
     </section>
