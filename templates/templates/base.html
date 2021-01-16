@@ -1,14 +1,21 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}My Awesome Blog{% endblock title %}</title>
+
+    <link rel="stylesheet" href="{% static 'bulma/css/bulma.css' %}">
 </head>
 <body>
-
-<nav>
-    <a href="{% url 'home' %}">Home</a>
-</nav>
+<section class="section">
+    <div class="container">
+        <nav class="menu">
+            <a href="{% url 'home' %}">Home</a>
+        </nav>
+    </div>
+</section>
 
 {% block content %}
 {% endblock content %}
