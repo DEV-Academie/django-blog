@@ -5,7 +5,11 @@
 
     <ul>
         {% for post in object_list %}
-            <li>{{ post.publish_date }} - {{ post.title }}</li>
+            <li>
+                <a href="{% url 'detail' pk=post.pk %}">
+                    {{ post.publish_date }} - {{ post.title }}
+                </a>
+            </li>
         {% endfor %}
     </ul>
 

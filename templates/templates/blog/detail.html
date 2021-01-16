@@ -2,5 +2,9 @@
 {% block title %}Post{% endblock title %}
 
 {% block content %}
-    <h1>Detail view</h1>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.publish_date }} | {{ post.author }}</p>
+    <br/>
+    {{ post.body }}
+
 {% endblock content %}
