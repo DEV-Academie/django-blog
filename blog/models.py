@@ -41,3 +41,18 @@ class Category(models.Model):
 
     def __str__(self):
         return f"{self.title} ({self.posts.count()})"
+
+
+class Comment(models.Model):
+    comment = models.TextField()
+    user = models.ForeignKey("auth.User", on_delete=models.CASCADE, related_name="comments")
+    post = models.ForeignKey("blog.Post", on_delete=models.CASCADE, related_name="comments")
+    is_approved = models.BooleanField(default=False)
+    date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Reactie"
+        verbose_name_plural = "Reacties"
+
+    def __str__(self):
+        return f"Reactie door {self.user.username} bij {self.post} ({self.date})"

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Inloggen{% endblock %}
+{% block content %}
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-three-fifths-tablet">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                <div class="field">
+                    <label class="label">Gebruikersnaam</label>
+                    <div class="control">
+                        {{ form.username }}
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Wachtwoord</label>
+                    <div class="control">
+                        {{ form.password }}
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input type="submit" class="button is-link" value="Inloggen">
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
