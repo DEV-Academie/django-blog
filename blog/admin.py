@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from blog.models import Category, Post
+from blog.models import Category, Comment, Post
 
 
 @admin.register(Post)
@@ -15,6 +15,13 @@ class PostAdmin(admin.ModelAdmin):
 @admin.register(Category)
 class Category(admin.ModelAdmin):
     pass
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ("user", "date", "is_approved")
+    list_editable = ("is_approved", )
+    list_filter = ("is_approved", )
 
 
 admin.site.site_header = admin.site.site_title = "Beginnen met Django Blog"
