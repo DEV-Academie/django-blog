@@ -36,7 +36,6 @@ class PostsPerCategory(DetailView):
     template_name = "blog/category.html"
 
 
-
 class AddCommentView(LoginRequiredMixin, FormView):
     template_name = "blog/add_comment.html"
     form_class = CommentForm
