@@ -5,8 +5,10 @@
     <section class="section">
         <div class="container">
             <h1 class="title">{{ post.title }}</h1>
-            <p class="subtitle">{{ post.publish_date }} | {{ post.author }}</p>
-
+            <p class="subtitle">{{ post.publish_date }} | {{ post.author }}
+                {% if post.category %}
+                    | {{ post.category.title }}</p>
+                {% endif %}
             <div class="content">
                 {{ post.body }}
             </div>

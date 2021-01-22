@@ -20,5 +20,6 @@ class PostsPerCategory(DetailView):
     model = Category
     template_name = "blog/category.html"
 
+
 class PostRedirect(RedirectView):
     url = "/post"
