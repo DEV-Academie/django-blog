@@ -1,0 +1,18 @@
+<div class="box">
+    <div class="media">
+        <div class="media-content">
+            <p class="title is-4">Reactie bij {{ comment.post.title }}</p>
+            <p class="subtitle is-6 has-text-grey-light">
+                {{ comment.date|date:"d-m-Y H:m " }}
+            </p>
+
+            <p>
+                {{ comment.comment }}
+            </p>
+
+            <hr/>
+
+            <a class="button" href="{% url 'delete_comment' pk=comment.pk %}">Verwijder reactie</a>
+        </div>
+    </div>
+</div>

@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Prefetch
 from django.http.response import HttpResponseRedirect
 from django.urls import reverse_lazy
-from django.views.generic import DetailView, FormView, ListView, RedirectView
+from django.views.generic import DetailView, FormView, ListView, RedirectView, DeleteView
 from django.views.generic.detail import SingleObjectMixin
 
 from blog.forms import CommentForm
@@ -98,6 +98,20 @@ class HandleFormView(SingleObjectMixin, FormView):
 #
 #         comment.save()
 #         return HttpResponseRedirect(reverse_lazy("detail", kwargs={"pk": self.blog_post.pk}))
+
+
+class LoggedInUserCommentsView(LoginRequiredMixin, ListView):
+    template_name = "blog/user_comments.html"
+    model = Comment
+    context_object_name = "comments"
+
+    def get_queryset(self):
+        return Comment.objects.filter(user=self.request.user)
+
+
+class DeleteCommentView(LoginRequiredMixin, DeleteView):
+    model = Comment
+    success_url = reverse_lazy("user_comments")
 
 
 class PostRedirect(RedirectView):

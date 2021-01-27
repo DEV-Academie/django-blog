@@ -130,6 +130,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "templates/static", ]
 
 LOGIN_URL = reverse_lazy("login")
+LOGIN_REDIRECT_URL = reverse_lazy("user_comments")
 LOGOUT_REDIRECT_URL = reverse_lazy("home")
 
 AUTH_USER_MODEL = 'users.User'

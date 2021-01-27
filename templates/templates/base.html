@@ -9,13 +9,32 @@
     <link rel="stylesheet" href="{% static 'bulma/css/bulma.css' %}">
 </head>
 <body>
-<section class="section">
-    <div class="container">
-        <nav class="menu">
-            <a href="{% url 'home' %}">Home</a>
-        </nav>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="{% url 'home' %}">Beginnen met Django Blog</a>
     </div>
-</section>
+    <div class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="{% url 'home' %}">Home</a>
+            {% if request.user.is_authenticated %}
+                <a class="navbar-item" href="{% url 'user_comments' %}">Mijn reacties</a>
+            {% endif %}
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    {% if request.user.is_authenticated %}
+                        <a href="{% url 'logout' %}" class="button is-primary">Logout</a>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="button is-primary">Login</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
 
 {% block content %}
 {% endblock content %}
