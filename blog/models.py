@@ -45,7 +45,7 @@ class Category(models.Model):
 
 class Comment(models.Model):
     comment = models.TextField()
-    user = models.ForeignKey("auth.User", on_delete=models.CASCADE, related_name="comments")
+    user = models.ForeignKey("users.User", on_delete=models.CASCADE, related_name="comments")
     post = models.ForeignKey("blog.Post", on_delete=models.CASCADE, related_name="comments")
     is_approved = models.BooleanField(default=False)
     date = models.DateTimeField(auto_now_add=True)

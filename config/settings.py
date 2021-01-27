@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'blog.apps.BlogConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,5 @@ STATICFILES_DIRS = [BASE_DIR / "templates/static", ]
 
 LOGIN_URL = reverse_lazy("login")
 LOGOUT_REDIRECT_URL = reverse_lazy("home")
+
+AUTH_USER_MODEL = 'users.User'

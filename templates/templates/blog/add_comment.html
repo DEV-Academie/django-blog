@@ -8,7 +8,13 @@
                 <div class="column is-three-fifths-tablet">
                 <h2>Laat een reactie achter voor {{ post.title }}</h2>
 
-                    <form action="" method="POST">
+                    {% if form.errors %}
+                    <div class="notification is-danger">
+                        Let op: er ging iets niet goed
+                    </div>
+                    {% endif %}
+
+                    <form action="{% url 'process_form' pk=post.pk %}" method="POST">
                         {% csrf_token %}
 
                         <div class="field">
@@ -16,6 +22,11 @@
                             <div class="control">
                                 {{ form.comment }}
                             </div>
+                            {% if form.comment.errors %}
+                                {% for error in form.comment.errors %}
+                                    <p class="has-text-danger">{{ error }}</p>
+                                {% endfor %}
+                            {% endif %}
                         </div>
 
                         <div class="field">

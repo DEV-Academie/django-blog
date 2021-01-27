@@ -21,19 +21,4 @@ class Migration(migrations.Migration):
             name='post',
             options={'verbose_name': 'Bericht', 'verbose_name_plural': 'Berichten'},
         ),
-        migrations.CreateModel(
-            name='Comment',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('comment', models.TextField()),
-                ('is_approved', models.BooleanField(default=False)),
-                ('date', models.DateTimeField(auto_now_add=True)),
-                ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='comments', to='blog.post')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='comments', to=settings.AUTH_USER_MODEL)),
-            ],
-            options={
-                'verbose_name': 'Reactie',
-                'verbose_name_plural': 'Reacties',
-            },
-        ),
     ]
