@@ -2,5 +2,4 @@ from django import forms
 
 
 class CommentForm(forms.Form):
-    comment = forms.CharField(widget=forms.Textarea,
-                              label="Je reactie")
+    comment = forms.CharField(widget=forms.Textarea, label="Je reactie")
